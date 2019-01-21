@@ -23,42 +23,100 @@ reseting the form to try again
     <title>Master MadLib</title>
     <meta charset="UTF-8">
     <style>
-        div {
-            border: 1px solid red;
-            background-color: #d2d2d2;
+        #header {
+          background-color: rgb(208, 37, 0);
+          grid-column: 1 / 5;
+          padding: 0.5em 3em;
+          color: rgb(255, 255, 255);
         }
-
+        div {
+            border: None;
+        }
+        .displayGrid {
+            display: grid;
+        }
         .displayNone {
             display: none;
         }
-
         .displayBlock {
             display: block;
+        }
+        .container {
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap: 5px;
+            margin: 1em;
+            font-family: sans-serif;
+        }
+        #inputPanel {
+            grid-column: 1 / 5;
+            background-color: #bebbbb;
+            padding: 1em;
+            text-align:justify;
+        }
+        #outputPanel {
+            grid-column: 1 / 5;
+            background-color: #bebbbb;
+            padding: 1em 5em;
+        }
+        .content {
+          width: 280px;
+          margin: auto;
         }
     </style>
 </head>
 
 <body>
+  <div class="container displayGrid">
+    <div id="header">
+        <h1>Drake's MadLib</h1>
+    </div>
     <div id="inputPanel">
-        <h3>A few questions for you</h3>
-        <p>A first name:
-            <input id="firstName" type="text" placeholder="first name">
+      <div class="content">
+        <h3>Choose some fun words</h3>
+        <p>An Adjective:
+            <input id="adjective1" type="text" placeholder="adjective">
         </p>
-        <p>Your favorite color:
-            <input id="favColor" type="text" placeholder="favorite color">
+        <p>A Plural Noun:
+            <input id="pluralNoun1" type="text" placeholder="plural noun">
         </p>
-        <p>Place:
-            <input id="place" type="text" placeholder="place">
+        <p>Noun:
+            <input id="noun1" type="text" placeholder="noun">
+        </p>
+        <p>An Adjective:
+            <input id="adjective2" type="text" placeholder="adjective">
+        </p>
+        <p>A Part of the Body:
+            <input id="bodyPart1" type="text" placeholder="body part">
+        </p>
+        <p>An Adjective:
+            <input id="adjective3" type="text" placeholder="adjective">
+        </p>
+        <p>A Plural Noun:
+            <input id="pluralNoun2" type="text" placeholder="plural noun">
+        </p>
+        <p>A Part of the Body:
+            <input id="bodyPart2" type="text" placeholder="body part">
+        </p>
+        <p>An Adjective:
+            <input id="adjective4" type="text" placeholder="adjective">
+        </p>
+        <p>An Adverb:
+            <input id="adverb" type="text" placeholder="adverb">
+        </p>
+        <p>Noun:
+            <input id="noun2" type="text" placeholder="noun">
         </p>
         <button id="submit">Submit your answers</button>
-        <p id="warning">Please answer all questions.</p>
-
+        <p id="warning">Please fill each field.</p>
+      </div>
     </div>
     <div id="outputPanel">
-        <p>Your story....</p>
-        <p id="theStory">junk</p>
+        <h2>The Force</h2>
+        <p id="theStory">The Force is a mystical, ADJECTIVE1 power. As Jedi Master Obi-Wan Kenobi once said, "the Force is an energy field, created by all living PLURAL NOUN1, that surrounds us, penetrates us, and binds the NOUN1 together." Using the power of the Force, a Jedi can do many ADJECTIVE2 things, like using the Force to exercise BODYPART1 control over ADJECTIVE3-minded PLURALNOUN2. A Jedi can also use the Force to move objects with his or her BODYPART2. It doesn't matter how ADJECTIVE4 these objects are; it only matters how ADVERB the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke NOUN2.</p>
         <button id="again">Again?</button>
     </div>
+  </div>
     <script>
         const inputPanel = document.querySelector("#inputPanel");
         const outputPanel = document.querySelector("#outputPanel");
