@@ -20,11 +20,11 @@ reseting the form to try again
 <html>
 
 <head>
-    <title>Master MadLib</title>
-    <meta charset="UTF-8">
-    <style>
-        #header {
-          background-color: rgb(208, 37, 0);
+  <title>Master MadLib</title>
+  <meta charset="UTF-8">
+  <style>
+    #header {
+          background-color: #3c3c3c;
           grid-column: 1 / 5;
           padding: 0.5em 3em;
           color: rgb(255, 255, 255);
@@ -50,18 +50,64 @@ reseting the form to try again
         }
         #inputPanel {
             grid-column: 1 / 5;
-            background-color: #bebbbb;
+            background-color: #eeeeee;
             padding: 1em;
             text-align:justify;
         }
         #outputPanel {
             grid-column: 1 / 5;
-            background-color: #bebbbb;
-            padding: 1em 5em;
+            background-color: #eeeeee;
+            padding: 1em;
         }
-        .content {
-          width: 280px;
+        .contentIn {
+          width: 50vw;
           margin: auto;
+          background-color: #dfdede;
+          border: 1px solid #c7c7c7;
+          padding: 2em 4em 2em 3em;
+        }
+        .contentOut {
+          width: 60vw;
+          margin: auto;
+          background-color: #dfdede;
+          border: 1px solid #c7c7c7;
+          padding: 2em 2em 2em 2em;
+        }
+        input {
+          padding: 5px;
+          margin: 2px 10px;
+          width: 100%;
+          border: 1px solid rgb(177, 177, 177);
+        }
+        p {
+          margin: 10px 1px 1px 1px;
+        }
+        #submit {
+          margin: 20px;
+          padding: 1em;
+          color: #ffffff;
+          font-weight: bold;
+          background-color: #0067d2;
+          border-radius: 5px;
+        }
+        #again {
+          margin: 20px;
+          padding: 1em;
+          color: #ffffff;
+          font-weight: bold;
+          background-color: #0067d2;
+          border-radius: 5px;
+        }
+        #warning {
+          color: rgb(181, 0, 0);
+        }
+        .inputTitle {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        #theStory {
+          line-height: 30px;
+          font-size: 13px;
         }
     </style>
 </head>
@@ -69,94 +115,97 @@ reseting the form to try again
 <body>
   <div class="container displayGrid">
     <div id="header">
-        <h1>Drake's MadLib</h1>
+      <h1>Drake's MadLib</h1>
     </div>
     <div id="inputPanel">
-      <div class="content">
-        <h3>Choose some fun words</h3>
-        <p>An Adjective:
-            <input id="adjective1" type="text" placeholder="adjective">
-        </p>
-        <p>A Plural Noun:
-            <input id="pluralNoun1" type="text" placeholder="plural noun">
-        </p>
-        <p>Noun:
-            <input id="noun1" type="text" placeholder="noun">
-        </p>
-        <p>An Adjective:
-            <input id="adjective2" type="text" placeholder="adjective">
-        </p>
-        <p>A Part of the Body:
-            <input id="bodyPart1" type="text" placeholder="body part">
-        </p>
-        <p>An Adjective:
-            <input id="adjective3" type="text" placeholder="adjective">
-        </p>
-        <p>A Plural Noun:
-            <input id="pluralNoun2" type="text" placeholder="plural noun">
-        </p>
-        <p>A Part of the Body:
-            <input id="bodyPart2" type="text" placeholder="body part">
-        </p>
-        <p>An Adjective:
-            <input id="adjective4" type="text" placeholder="adjective">
-        </p>
-        <p>An Adverb:
-            <input id="adverb" type="text" placeholder="adverb">
-        </p>
-        <p>Noun:
-            <input id="noun2" type="text" placeholder="noun">
-        </p>
-        <button id="submit">Submit your answers</button>
+      <div class="contentIn">
+        <h3 class="inputTitle">Choose some fun words</h3>
+        <p>An Adjective</p>
+        <input id="adjective1" type="text" placeholder="adjective">
+        <p>A Plural Noun</p>
+        <input id="pluralNoun1" type="text" placeholder="plural noun">
+
+        <p>Noun</p>
+        <input id="noun1" type="text" placeholder="noun">
+
+        <p>An Adjective</p>
+        <input id="adjective2" type="text" placeholder="adjective">
+
+        <p>A Part of the Body</p>
+        <input id="bodyPart1" type="text" placeholder="body part">
+
+        <p>An Adjective</p>
+        <input id="adjective3" type="text" placeholder="adjective">
+
+        <p>A Plural Noun</p>
+        <input id="pluralNoun2" type="text" placeholder="plural noun">
+
+        <p>A Part of the Body</p>
+        <input id="bodyPart2" type="text" placeholder="body part">
+
+        <p>An Adjective</p>
+        <input id="adjective4" type="text" placeholder="adjective">
+
+        <p>An Adverb</p>
+        <input id="adverb" type="text" placeholder="adverb">
+
+        <p>Noun</p>
+        <input id="noun2" type="text" placeholder="noun">
+
+        <button id="submit">Submit Your Answers</button>
         <p id="warning">Please fill each field.</p>
       </div>
     </div>
     <div id="outputPanel">
-        <h2>The Force</h2>
-        <p id="theStory">The Force is a mystical, ADJECTIVE1 power. As Jedi Master Obi-Wan Kenobi once said, "the Force is an energy field, created by all living PLURAL NOUN1, that surrounds us, penetrates us, and binds the NOUN1 together." Using the power of the Force, a Jedi can do many ADJECTIVE2 things, like using the Force to exercise BODYPART1 control over ADJECTIVE3-minded PLURALNOUN2. A Jedi can also use the Force to move objects with his or her BODYPART2. It doesn't matter how ADJECTIVE4 these objects are; it only matters how ADVERB the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke NOUN2.</p>
-        <button id="again">Again?</button>
+      <div class="contentOut">
+      <h2>The Force</h2>
+      <p id="theStory">The Force is a mystical, ADJECTIVE1 power. As Jedi Master Obi-Wan Kenobi once said, "the Force is an energy field, created by all living PLURAL NOUN1, that surrounds us, penetrates us, and binds the NOUN1 together." Using the
+        power of the Force, a Jedi can do many ADJECTIVE2 things, like using the Force to exercise BODYPART1 control over ADJECTIVE3-minded PLURALNOUN2. A Jedi can also use the Force to move objects with his or her BODYPART2. It doesn't matter how
+        ADJECTIVE4 these objects are; it only matters how ADVERB the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke NOUN2.</p>
+      <button id="again">Again?</button>
+      </div>
     </div>
   </div>
-    <script>
-        const inputPanel = document.querySelector("#inputPanel");
-        const outputPanel = document.querySelector("#outputPanel");
-        const warning = document.querySelector("#warning");
+  <script>
+    const inputPanel = document.querySelector("#inputPanel");
+    const outputPanel = document.querySelector("#outputPanel");
+    const warning = document.querySelector("#warning");
 
-        const submit = document.querySelector("#submit");
-        submit.addEventListener("click", writeStory, false);
+    const submit = document.querySelector("#submit");
+    submit.addEventListener("click", writeStory, false);
 
-        const again = document.querySelector("#again");
-        again.addEventListener("click", resetPage, false);
+    const again = document.querySelector("#again");
+    again.addEventListener("click", resetPage, false);
 
-        document.querySelector('#firstName').focus();
+    document.querySelector('#firstName').focus();
 
-        const firstName = document.querySelector('#firstName');
-        const favColor = document.querySelector("#favColor");
-        const place = document.querySelector('#place');
-        const theStory = document.querySelector("#theStory");
+    const firstName = document.querySelector('#firstName');
+    const favColor = document.querySelector("#favColor");
+    const place = document.querySelector('#place');
+    const theStory = document.querySelector("#theStory");
 
-        window.addEventListener("keydown", keydownHandler, false);
+    window.addEventListener("keydown", keydownHandler, false);
 
-        function keydownHandler(event) {
-            console.log("Enter key pressed");
+    function keydownHandler(event) {
+      console.log("Enter key pressed");
 
-        }
+    }
 
-        function checkComplete() {
-            //verify the user filled in the form
+    function checkComplete() {
+      //verify the user filled in the form
 
-        }
+    }
 
-        function writeStory() {
-            //grab the input values to write the story
+    function writeStory() {
+      //grab the input values to write the story
 
-        }
+    }
 
-        function resetPage() {
-            //put stuff here to reset the page so the user can try again
+    function resetPage() {
+      //put stuff here to reset the page so the user can try again
 
-        }
-    </script>
+    }
+  </script>
 </body>
 
 </html>
