@@ -122,8 +122,10 @@ reseting the form to try again
     <div id="inputPanel">
       <div class="contentIn">
         <h3 class="inputTitle">Choose Some Fun Words</h3>
+
         <p>An Adjective</p>
         <input id="adjective1" type="text" placeholder="adjective">
+
         <p>A Plural Noun</p>
         <input id="pluralNoun1" type="text" placeholder="plural noun">
 
@@ -175,15 +177,23 @@ reseting the form to try again
 
     const submit = document.querySelector("#submit");
     submit.addEventListener("click", writeStory, false);
-
+    outputPanel.className = 'displayNone'
     const again = document.querySelector("#again");
     again.addEventListener("click", resetPage, false);
 
-    document.querySelector('#firstName').focus();
+    document.querySelector('#adjective1').focus();
 
-    const firstName = document.querySelector('#firstName');
-    const favColor = document.querySelector("#favColor");
-    const place = document.querySelector('#place');
+    const adjective1 = document.querySelector('#adjective1');
+    const pluralNoun1 = document.querySelector("#pluralNoun1");
+    const noun1 = document.querySelector('#noun1');
+    const adjective2 = document.querySelector('#adjective2')
+    const bodyPart1 = document.querySelector('#bodyPart1')
+    const adjective3 = document.querySelector('#adjective3')
+    const pluralNoun2 = document.querySelector('#pluralNoun2')
+    const bodyPart2 = document.querySelector('#bodyPart2')
+    const adjective4 = document.querySelector('#adjective4')
+    const adverb = document.querySelector('#adverb')
+    const noun2 = document.querySelector('#noun2')
     const theStory = document.querySelector("#theStory");
 
     window.addEventListener("keydown", keydownHandler, false);
@@ -200,6 +210,18 @@ reseting the form to try again
 
     function writeStory() {
       //grab the input values to write the story
+      let story = theStory
+      story.innerHTML = "The Force is a mystical, " + adjective1.value + " power. "
+      story.innerHTML += "As Jedi Master Obi-Wan Kenobi once said, &#34;the Force is an energy field, created by all living " + pluralNoun1.value + ", "
+      story.innerHTML += "that surrounds us, penetrates us, and binds the " + noun1.value + " together.&#34; "
+      story.innerHTML += "Using the power of the Force, a Jedi can do many " + adjective2.value + " things, "
+      story.innerHTML += "like using the Force to exercise " + bodyPart1.value + " control over "
+      story.innerHTML += adjective3.value + "-minded " + pluralNoun2.value + ". "
+      story.innerHTML += "A Jedi can also use the Force to move objects with his or her " + bodyPart2.value
+      story.innerHTML += ". It doesn't matter how " + adjective4.value + " these objects are; it only matters how "
+      story.innerHTML += adverb.value + " the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke " + noun2.value + "."
+      inputPanel.className = "displayNone"
+      outputPanel.className = "displayGrid"
 
     }
 
