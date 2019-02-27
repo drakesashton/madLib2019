@@ -115,6 +115,9 @@ reseting the form to try again
           line-height: 30px;
           font-size: 13px;
         }
+        .bgPink {
+          background-color: pink;
+        }
     </style>
 </head>
 
@@ -166,9 +169,9 @@ reseting the form to try again
     </div>
     <div id="outputPanel">
       <div class="contentOut">
-      <h2>The Force</h2>
-      <p id="theStory"></p>
-      <button id="again">Again?</button>
+        <h2>The Force</h2>
+        <p id="theStory"></p>
+        <button id="again">Again?</button>
       </div>
     </div>
   </div>
@@ -203,34 +206,87 @@ reseting the form to try again
     window.addEventListener("keydown", keydownHandler, false);
 
     function keydownHandler(event) {
-        if (event.keyCode === 13) {
-          console.log("Enter key pressed");
-          writeStory()
-        }
+      if (event.keyCode === 13) {
+        console.log("Enter key pressed");
+        writeStory()
+      }
     }
 
     function checkComplete() {
       //verify the user filled in the form
-      if ( adjective1.value == '' || pluralNoun1.value == '' || noun1.value == '' || adjective2.value == '' || bodyPart1.value == '' || adjective3.value == '' || pluralNoun2.value == '' || bodyPart2.value == '' || adjective4.value == '' || adverb.value == '' || noun2.value == '') {
+
+      adjective1.classList.remove("bgPink")
+      pluralNoun1.classList.remove("bgPink")
+      noun1.classList.remove("bgPink")
+      adjective2.classList.remove("bgPink")
+      bodyPart1.classList.remove("bgPink")
+      adjective3.classList.remove("bgPink")
+      pluralNoun2.classList.remove("bgPink")
+      bodyPart2.classList.remove("bgPink")
+      adjective4.classList.remove("bgPink")
+      adverb.classList.remove("bgPink")
+      noun2.classList.remove("bgPink")
+
+      if (adjective1.value == '') {
+        adjective1.className = "bgPink"
+      }
+      if (pluralNoun1.value == '') {
+        pluralNoun1.className = "bgPink"
+      }
+      if (noun1.value == '') {
+        noun1.className = "bgPink"
+      }
+      if (adjective2.value == '') {
+        adjective2.className = "bgPink"
+      }
+      if (bodyPart1.value == '') {
+        bodyPart1.className = "bgPink"
+      }
+      if (adjective3.value == '') {
+        adjective3.className = "bgPink"
+      }
+      if (pluralNoun2.value == '') {
+        pluralNoun2.className = "bgPink"
+      }
+      if (bodyPart2.value == '') {
+        bodyPart2.className = "bgPink"
+      }
+      if (adjective4.value == '') {
+        adjective4.className = "bgPink"
+      }
+      if (adverb.value == '') {
+        adverb.className = "bgPink"
+      }
+      if (noun2.value == '') {
+        noun2.className = "bgPink"
+      }
+      if (adjective1.value == '' || pluralNoun1.value == '' || noun1.value == '' || adjective2.value == '' || bodyPart1.value == '' || adjective3.value == '' || pluralNoun2.value == '' || bodyPart2.value == '' || adjective4.value == '' || adverb.value ==
+        '' || noun2.value == '') {
         warning.className = 'displayBlock'
         return false
+      } else {
+        return true
       }
     }
 
     function writeStory() {
       //grab the input values to write the story
-      if (checkComplete() == false){
+      if (checkComplete() == false) {
         return
       }
 
       let story = theStory
-      addTextNode( "The Force is a mystical, " + adjective1.value + " power. " + 'As Jedi Master Obi-Wan Kenobi once said, "the Force is an energy field, created by all living ' + pluralNoun1.value + ", " + "that surrounds us, penetrates us, and binds the " + noun1.value + ' together." ' + "Using the power of the Force, a Jedi can do many " + adjective2.value + " things, " + "like using the Force to exercise " + bodyPart1.value + " control over " + adjective3.value + "-minded " + pluralNoun2.value + ". " )
-      addTextNode("A Jedi can also use the Force to move objects with his or her " + bodyPart2.value + "." + "It doesn't matter how " + adjective4.value + " these objects are; it only matters how " + adverb.value + " the Jedi believes in the Force." + " Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke " + noun2.value + ".")
+      addTextNode("The Force is a mystical, " + adjective1.value + " power. " + 'As Jedi Master Obi-Wan Kenobi once said, "the Force is an energy field, created by all living ' + pluralNoun1.value + ", " +
+        "that surrounds us, penetrates us, and binds the " + noun1.value + ' together." ' + "Using the power of the Force, a Jedi can do many " + adjective2.value + " things, " + "like using the Force to exercise " + bodyPart1.value +
+        " control over " + adjective3.value + "-minded " + pluralNoun2.value + ". ")
+      addTextNode("A Jedi can also use the Force to move objects with his or her " + bodyPart2.value + ". " + "It doesn't matter how " + adjective4.value + " these objects are; it only matters how " + adverb.value +
+        " the Jedi believes in the Force." + " Most importantly, the Force teaches a Jedi to rely on his or her feelings. May the Force be with you, Luke " + noun2.value + ".")
       inputPanel.className = "displayNone"
       outputPanel.className = "displayGrid"
 
     }
-    function addTextNode (text) {
+
+    function addTextNode(text) {
       const newP = document.createElement('p')
       const newT = document.createTextNode(text)
       newP.appendChild(newT)
@@ -257,7 +313,19 @@ reseting the form to try again
 
       theStory.innerHTML = ''
 
-      adjective1.focus ()
+      adjective1.classList.remove("bgPink")
+      pluralNoun1.classList.remove("bgPink")
+      noun1.classList.remove("bgPink")
+      adjective2.classList.remove("bgPink")
+      bodyPart1.classList.remove("bgPink")
+      adjective3.classList.remove("bgPink")
+      pluralNoun2.classList.remove("bgPink")
+      bodyPart2.classList.remove("bgPink")
+      adjective4.classList.remove("bgPink")
+      adverb.classList.remove("bgPink")
+      noun2.classList.remove("bgPink")
+
+      adjective1.focus()
     }
   </script>
 </body>
